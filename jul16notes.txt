@@ -1,0 +1,12 @@
+trying to find repeated regions across two dates in the most effective manor possible.
+Right now, im using a haversine equation to determine the distance between points, and if it is less than 0.025, (which i want to be the equivalent to 1 degree, but im not sure that it is). then, im returning an array with the matching y, x in scan 2 followed by the tested y, x from scan 1. these can be used to find the lat and long values for an individual pixel that is repeated.
+However, i want to exclude saturated data from this process. The way that i have it now, with functions and such, can only exclude some of the data, specifically from the first scan. However, the results of matching pixels relies on the order of scans provided, which i don't understand.
+
+Next logical step seems to be to take it out of functions to understand why its behaving like this, and to better exlude regions of both scans that are saturated/dark/off. 
+
+I also want to check across two scans on the same day, so i can get the exact pixel instead of the +23 pixel guess I've been doing, but its not working and I'm unsure why. 
+
+wait a second, n_spec is using dec12 01 cosi?
+but it looks like dec501?
+
+i can rewrite ignore regions to be true/false and not need to read in the calibrated cube so its easier to exclude
